@@ -13,7 +13,6 @@ namespace CloseAlerts
         public static SynchronizationContext s_ctxThread;
         private bool ExitAllow = false;
         BackgroundWorker bg1;
-        BackgroundWorker bg2;
         Monitoring _m;
 
         const string APP_NAME = "Conbe_CloseAlert";
@@ -53,31 +52,7 @@ namespace CloseAlerts
             bg1.DoWork += Bg_DoWork;
             bg1.RunWorkerCompleted += Bg_RunWorkerCompleted;
 
-            bg2 = new BackgroundWorker();
-            bg2.WorkerReportsProgress = true;
-            bg2.WorkerSupportsCancellation = true;
-            bg2.ProgressChanged += Bg2_ProgressChanged;
-            bg2.DoWork += Bg2_DoWork;
-            bg2.RunWorkerCompleted += Bg2_RunWorkerCompleted;
-
-
             bg1.RunWorkerAsync();
-            //bg2.RunWorkerAsync();
-        }
-
-        private void Bg2_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
-        private void Bg2_DoWork(object sender, DoWorkEventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
-        private void Bg2_ProgressChanged(object sender, ProgressChangedEventArgs e)
-        {
-            throw new NotImplementedException();
         }
 
         private void Bg_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
