@@ -42,10 +42,10 @@ namespace CloseAlerts
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.lbl_Monitor = new System.Windows.Forms.Label();
             this.lbl_Status = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.contextMenuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -150,24 +150,6 @@ namespace CloseAlerts
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "상태 확인";
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(34, 27);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(61, 12);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "작동상태 :";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(34, 48);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(61, 12);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "감지횟수 :";
-            // 
             // lbl_Monitor
             // 
             this.lbl_Monitor.AutoSize = true;
@@ -186,6 +168,24 @@ namespace CloseAlerts
             this.lbl_Status.TabIndex = 2;
             this.lbl_Status.Text = "작동중 ( 1일 23시간 41분 22초 )";
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(34, 48);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(61, 12);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "감지횟수 :";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(34, 27);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(61, 12);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "작동상태 :";
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -203,7 +203,7 @@ namespace CloseAlerts
             this.MinimizeBox = false;
             this.Name = "FrmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "주문오류창 감시";
+            this.Text = "주문오류창 감시 v1.0";
             this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmMain_FormClosing);
             this.Shown += new System.EventHandler(this.FrmMain_Shown);

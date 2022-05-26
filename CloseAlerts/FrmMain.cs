@@ -69,6 +69,7 @@ namespace CloseAlerts
 
             while (!bg1.CancellationPending)
             {
+                Thread.Sleep(500);
             }
         }
 
