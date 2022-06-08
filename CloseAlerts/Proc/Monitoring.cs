@@ -11,12 +11,12 @@ namespace CloseAlerts.Proc
     public class Monitoring
     {
         const string statusFormat = "작동중 ( {0:%d}일 {0:%h}시간 {0:%m}분 {0:%s}초 )";
-        const string monitorFormat = "가장매매 [{0:d}] / 주문거부 [{1:d}]";
-
+        const string monitorFormat = "가장매매 [{0:d}] / 주문거부 [{1:d}] / 주문오류 [{2:d}]\r\n기타알럿창 [{3:d}]";
+        
+        string statusString { get { return string.Format(monitorFormat, _close[0], _close[1], _close[2], _close[3]); } }
 
         DateTime StartDate;
-        int _close1 = 0;
-        int _close2 = 0;
+        int[] _close = { 0, 0, 0, 0 };
 
         Timer runTimer;
         Timer monTimer;
@@ -43,6 +43,8 @@ namespace CloseAlerts.Proc
         {
             runTimer.Start();
             monTimer.Start();
+
+            UpdateMonitor(statusString);
         }
         public void Stop()
         {
@@ -64,26 +66,52 @@ namespace CloseAlerts.Proc
             if (handle > 0)
             {
                 WinAppServices.SendOrder((IntPtr)handle);
-                _close1++;
-                UpdateMonitor(string.Format(monitorFormat, _close1, _close2) );
+                _close[0]++;
+                UpdateMonitor(statusString);
             }
 
             var handle2 = WinAppServices.FindSubHandle(HtsControls.일괄주문);
             if (handle2 > 0)
             {
                 WinAppServices.SendOrder((IntPtr)handle2);
-                _close2++;
+                _close[1]++;
 
-                UpdateMonitor(string.Format(monitorFormat, _close1, _close2));
+                UpdateMonitor(statusString);
             }
 
+            var handle3 = WinAppServices.FindSubHandle(HtsControls.사이렌오류);
+            if (handle3 > 0)
+            {
+                WinAppServices.SendOrderESC((IntPtr)handle3);
+                _close[2]++;
+
+                UpdateMonitor(statusString);
+            }
+
+            var handle4 = WinAppServices.FindSubHandle(HtsControls.선택된주문);
+            if (handle4 > 0)
+            {
+                WinAppServices.SendOrder((IntPtr)handle4);
+                _close[3]++;
+
+                UpdateMonitor(statusString);
+            }
+
+            var handle5 = WinAppServices.FindSubHandle(HtsControls.잘못된인수);
+            if (handle5 > 0)
+            {
+                WinAppServices.SendOrder((IntPtr)handle5);
+                _close[3]++;
+
+                UpdateMonitor(statusString);
+            }
 
             //var handle3 = WinAppServices.FindSubHandle(HtsControls.주문거부);
             //if (handle3 > 0)
             //{
             //    WinAppServices.SendOrder((IntPtr)handle3);
             //}
-
         }
+
     }
 }

@@ -46,14 +46,18 @@ namespace CloseAlerts
             this.lbl_Status = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.contextMenuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // chk_AutoStart
             // 
             this.chk_AutoStart.AutoSize = true;
-            this.chk_AutoStart.Location = new System.Drawing.Point(33, 150);
+            this.chk_AutoStart.Location = new System.Drawing.Point(33, 235);
             this.chk_AutoStart.Name = "chk_AutoStart";
             this.chk_AutoStart.Size = new System.Drawing.Size(156, 16);
             this.chk_AutoStart.TabIndex = 8;
@@ -63,7 +67,7 @@ namespace CloseAlerts
             // 
             // btn_OK
             // 
-            this.btn_OK.Location = new System.Drawing.Point(188, 145);
+            this.btn_OK.Location = new System.Drawing.Point(188, 230);
             this.btn_OK.Name = "btn_OK";
             this.btn_OK.Size = new System.Drawing.Size(59, 26);
             this.btn_OK.TabIndex = 7;
@@ -73,7 +77,7 @@ namespace CloseAlerts
             // 
             // btn_Close
             // 
-            this.btn_Close.Location = new System.Drawing.Point(253, 145);
+            this.btn_Close.Location = new System.Drawing.Point(253, 230);
             this.btn_Close.Name = "btn_Close";
             this.btn_Close.Size = new System.Drawing.Size(59, 26);
             this.btn_Close.TabIndex = 6;
@@ -123,7 +127,7 @@ namespace CloseAlerts
             this.label2.Dock = System.Windows.Forms.DockStyle.Top;
             this.label2.Location = new System.Drawing.Point(0, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(347, 45);
+            this.label2.Size = new System.Drawing.Size(364, 45);
             this.label2.TabIndex = 10;
             // 
             // label1
@@ -133,9 +137,9 @@ namespace CloseAlerts
             this.label1.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label1.Location = new System.Drawing.Point(4, 13);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(339, 20);
+            this.label1.Size = new System.Drawing.Size(281, 20);
             this.label1.TabIndex = 11;
-            this.label1.Text = "키움 주문거부 및 주문오류창 자동 닫기 프로그램";
+            this.label1.Text = "키움 주문오류창 처리 / 종료시 자동청산";
             // 
             // groupBox1
             // 
@@ -143,26 +147,25 @@ namespace CloseAlerts
             this.groupBox1.Controls.Add(this.lbl_Status);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Location = new System.Drawing.Point(16, 58);
+            this.groupBox1.Location = new System.Drawing.Point(12, 58);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(311, 74);
+            this.groupBox1.Size = new System.Drawing.Size(340, 91);
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "상태 확인";
+            this.groupBox1.Text = "주문거부 및 오류창 자동 닫기 상태";
             // 
             // lbl_Monitor
             // 
-            this.lbl_Monitor.AutoSize = true;
-            this.lbl_Monitor.Location = new System.Drawing.Point(101, 48);
+            this.lbl_Monitor.Location = new System.Drawing.Point(86, 48);
             this.lbl_Monitor.Name = "lbl_Monitor";
-            this.lbl_Monitor.Size = new System.Drawing.Size(159, 12);
+            this.lbl_Monitor.Size = new System.Drawing.Size(248, 40);
             this.lbl_Monitor.TabIndex = 3;
-            this.lbl_Monitor.Text = "가장매매 [0] / 주문거부 [0]";
+            this.lbl_Monitor.Text = "가장매매 [0] / 주문거부 [0] / 주문오류 [0]";
             // 
             // lbl_Status
             // 
             this.lbl_Status.AutoSize = true;
-            this.lbl_Status.Location = new System.Drawing.Point(101, 27);
+            this.lbl_Status.Location = new System.Drawing.Point(86, 27);
             this.lbl_Status.Name = "lbl_Status";
             this.lbl_Status.Size = new System.Drawing.Size(177, 12);
             this.lbl_Status.TabIndex = 2;
@@ -171,7 +174,7 @@ namespace CloseAlerts
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(34, 48);
+            this.label4.Location = new System.Drawing.Point(19, 48);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(61, 12);
             this.label4.TabIndex = 1;
@@ -180,17 +183,48 @@ namespace CloseAlerts
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(34, 27);
+            this.label3.Location = new System.Drawing.Point(19, 27);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(61, 12);
             this.label3.TabIndex = 0;
             this.label3.Text = "작동상태 :";
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.label6);
+            this.groupBox2.Controls.Add(this.label8);
+            this.groupBox2.Location = new System.Drawing.Point(12, 155);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(340, 57);
+            this.groupBox2.TabIndex = 13;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Visible = false;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(86, 27);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(219, 12);
+            this.label6.TabIndex = 2;
+            this.label6.Text = "nfrunlite 실행중 / TraderTestV2 실행중";
+            this.label6.Visible = false;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(19, 27);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(61, 12);
+            this.label8.TabIndex = 0;
+            this.label8.Text = "작동감시 :";
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(347, 178);
+            this.ClientSize = new System.Drawing.Size(364, 263);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
@@ -203,13 +237,15 @@ namespace CloseAlerts
             this.MinimizeBox = false;
             this.Name = "FrmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "주문오류창 감시 v1.0";
+            this.Text = "키움 자동매매 도우미 v1.1";
             this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmMain_FormClosing);
             this.Shown += new System.EventHandler(this.FrmMain_Shown);
             this.contextMenuStrip1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -232,6 +268,9 @@ namespace CloseAlerts
         private System.Windows.Forms.Label lbl_Status;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label8;
     }
 }
 
